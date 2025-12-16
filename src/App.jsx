@@ -11,7 +11,7 @@ import Shop from './assets/pages/Shop'
 const App = () => {
   return (
     <Router>
-      <div className='min-h-screen bg-pink-500'>
+      <div className='min-h-screen bg-primary'>
 
       <Header/>
 
