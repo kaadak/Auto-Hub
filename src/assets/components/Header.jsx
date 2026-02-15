@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineCancel } from "react-icons/md";
 
@@ -10,9 +10,9 @@ const Header = () => {
   const[open, setOpen] = useState(false)
 
   return (
-    <div className=' bg-primary text-center relative'>
+    <div className=' left-0 right-0 z-100 fixed bg-primary text-center '>
       
-      <div className='container mx-auto p-4 items-center flex justify-between'>
+      <div className='container mx-auto p-4 relative items-center flex justify-between'>
 
         <Link to='/' className='hover:brightness-70'>
         <div className='flex items-center hover:text-gray-300 gap-5'>
@@ -21,14 +21,14 @@ const Header = () => {
         </div>
         </Link>
 
-        <nav className='text-white hidden md:flex  text-md space-x-5 font-medium'>
-          <Link to='/' className='hover:text-gray-400'>Home</Link>
-          <Link to='/about' className='hover:text-gray-400'>About</Link>
-          <Link to='/services' className='hover:text-gray-400hover:text-gray group relative'>
-          <p className='hover:text-gray-400'>Services </p>
+        <nav  className='text-white hidden md:flex  text-md space-x-5 font-medium'>
+          <NavLink to='/' className={({isActive}) => isActive ? 'text-red-500' : 'text:white' }>Home</NavLink>
+          <NavLink to='/about' className={({isActive}) => isActive ? 'text-red-500' : 'text:white' }>About</NavLink>
+          <NavLink to='/services'  className={({isActive}) => isActive ? 'text-red-500 group relative' : 'text:white group relative'} >
+          <p >Services </p>
 
 {/* ---------------------dropdown-------------------------- */}
-          <div className='py-2 px-4 top-6 hidden group-hover:block bg-black space-y-2  absolute'>
+          <div className='py-2 px-4 top-6 hidden group-hover:block bg-black space-y-2 text-white absolute'>
             <div className='p-2 rounded-md border-b whitespace-nowrap hover:bg-primary border-white'>AC Repair</div>
             <div className='p-2 rounded-md border-b whitespace-nowrap hover:bg-primary border-white'>Brake Repair</div>
             <div className='p-2 rounded-md border-b whitespace-nowrap hover:bg-primary border-white'>Engine Repair</div>
@@ -37,11 +37,11 @@ const Header = () => {
             <div className='p-2 rounded-md border-b whitespace-nowrap hover:bg-primary border-white'>Performance</div>
           </div>
 
-          </Link>
+          </NavLink>
 
-          <Link to='/blog' className='hover:text-gray-400'>Blog</Link>
-          <Link to='/shop' className='hover:text-gray-400'>Shop</Link>
-          <Link to='/contact' className='hover:text-gray-400'>Contact</Link>
+          <NavLink to='/blog' className={({isActive}) => isActive ? 'text-red-500' : 'text:white' }>Blog</NavLink>
+          <NavLink to='/shop' className={({isActive}) => isActive ? 'text-red-500' : 'text:white' }>Shop</NavLink>
+          <NavLink to='/contact' className={({isActive}) => isActive ? 'text-red-500' : 'text:white' }>Contact</NavLink>
         </nav>
 
         <div className='flex gap-5'>
